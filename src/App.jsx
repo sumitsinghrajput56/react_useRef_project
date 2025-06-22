@@ -6,6 +6,8 @@ function App() {
 
   var val=useRef(0);
 
+  var btnRef=useRef();
+
   useEffect(()=>{
     console.log("mai render ho gya");
   });
@@ -18,10 +20,21 @@ function App() {
     
     setCount(count+1);
   }
+
+  function HandleColorChange()
+  {
+    btnRef.current.style.backgroundColor='red';
+
+    //use toggle
+
+    // btnRef.current.style.backgroundColor=='red'?
+    // btnRef.current.style.backgroundColor="":btnRef.current.style.backgroundColor="red";   
+  }
   return (
     <>
-      <button onClick={HandleIncrementClick}>Increment</button>
+      <button onClick={HandleIncrementClick} ref={btnRef}>Increment</button>
       <p>count:{count}</p>
+      <button onClick={HandleColorChange}>Chnage Color</button>
 
     </>
   )
